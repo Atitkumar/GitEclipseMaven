@@ -1,0 +1,11 @@
+ node('master')
+ {
+    
+     stage('compile')     {
+         bat 'dir'
+     }
+     stage('send_mail')
+     {
+         mail bcc: '', body: "Please go to $BUILD_URL result is $currentBuild.currentResult", cc: '', from: '', replyTo: '', subject: "jenkins-$JOB_NAME-$BUILD_NUMBER", to: 'machhirke_atitkumar.ghrcecs@raisoni.net'
+     }
+ }
